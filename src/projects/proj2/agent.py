@@ -1,6 +1,9 @@
 #!/usr/bin/env python3
+from pyrsistent import PMap
 
-from ...lib.game import Agent, RandomAgent
+from src.lib.game.discrete_soccer import Action
+from ...lib.game import Agent, RandomAgent, GameState
+
 
 class MinimaxAgent(RandomAgent):
     """An agent that makes decisions using the Minimax algorithm, using a
@@ -25,7 +28,7 @@ class MinimaxAgent(RandomAgent):
         self.alpha_beta_pruning = alpha_beta_pruning
         self.max_depth = max_depth
 
-    def decide(self, state):
+    def decide(self, state: GameState):
         # TODO: Implement this agent!
         #
         # Read the documentation in /src/lib/game/_game.py for
@@ -44,17 +47,48 @@ class MinimaxAgent(RandomAgent):
         # `/src/lib/game/_agents.py`.
 
         if not self.alpha_beta_pruning:
-            return self.minimax(state, state.current_player)
+            return self.minimax(state)
         else:
-            return self.minimax_with_ab_pruning(state, state.current_player)
+            return self.minimax_with_ab_pruning(state)
 
-    def minimax(self, state, player, depth=1):
+    def minimax(self, state: GameState):
         # This is the suggested method you use to do minimax.  Assume
         # `state` is the current state, `player` is the player that
         # the agent is representing (NOT the current player in
         # `state`!)  and `depth` is the current depth of recursion.
-        return super().decide(state)
+        #return super().decide(state)
+        if state.actions
+        for index, action in enumerate(state.actions):
+            if index == 0:
+                best_action = action
+                best_score = self.min_value(state.act(action))
+            else:
+                score = self.min_value(state.act(action))
+                if score > best_score:
+                    best_action = action
+                    best_score = score
+        return best_action
+
+
+
+        return
 
     def minimax_with_ab_pruning(self, state, player, depth=1,
                                 alpha=float('inf'), beta=-float('inf')):
         return super().decide(state)
+
+    def min_value(self, state: GameState, depth: int = 1):
+        # If at a terminal state, return the reward
+        if state.is_terminal:
+            return state.reward(state.current_player)
+        # If we reached the max search depth, return the utility
+        if depth >= self.max_depth:
+            return self.evaluate(state, state.current_player)
+
+        for index, action in state.actions:
+            if index = 0:
+                smallest_score = self.max_value(state.act(action), depth)
+
+
+
+    def max_value(self, state: GameState, depth: int = 1):
