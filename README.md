@@ -12,7 +12,12 @@ src/projects/proj2/evaluation.py
 
 https://docs.google.com/document/d/1z0eBrX6y-DD8Rx1dfRZ5E9dCd_RpBlmd8zIXl6Tev3w/edit?usp=sharing
 
-![Soccergif](https://i.imgur.com/IEHcPvs.mp4)
+
+
+
+https://user-images.githubusercontent.com/35621581/122257175-5f583f80-ce95-11eb-828a-d67b0123626e.mov
+
+
 
 ## Running The soccer game
 
