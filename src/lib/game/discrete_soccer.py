@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+from typing import List
 
 from ._game import *
 import pygame
@@ -170,6 +171,7 @@ class SoccerState(GameState):
 
         if action == Action.KICK:
             state = self._update_kick()
+
         elif action == Action.CHANGE_STANCE:
             state = state.transform(
                 self._cpk('stance'), (player.stance + 1) % 2
@@ -182,7 +184,6 @@ class SoccerState(GameState):
 
         if state:
             state = state.set(current_player_id=(self.current_player+1) % self.num_players)
-
         return state
 
     ################################################################
