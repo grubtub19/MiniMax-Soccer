@@ -1,30 +1,19 @@
-# CS-4253: Artificial Intelligence
+# MiniMax Soccer
 
-Code for the AI projects for CS-4253.
+A Minimax algorithm with ab-pruning and an evaluation function for a turn-taking soccer game.
 
-## Requirements
+The soccer game was provided to me, only the following files include my own code:
 
-All projects use Python 3. You will need to install some other
-dependencies as well. To do so, run (assuming you are using a Ubuntu
-system)
+src/projects/proj2/agent.py
 
-    sudo pip3 install -r requirements.txt
+src/projects/proj2/evaluation.py
 
-in the root of the folder. If you are on another system, it should be
-some variant of `pip install -r requirements.txt`.
+## Implementation Details and Report
 
-You will need Tkinter for Python 3 to use the pygame packages. On
-Ubuntu, this can be installed by running
+https://docs.google.com/document/d/1z0eBrX6y-DD8Rx1dfRZ5E9dCd_RpBlmd8zIXl6Tev3w/edit?usp=sharing
 
-    sudo apt-get install python3-tkinter
+![Soccergif](https://i.imgur.com/IEHcPvs.mp4)
 
-in the command line.
+## Running The soccer game
 
-## Running Evaluations
-
-The tool `evaluate.py` at the root of this direction can be run using
-
-    python3 evaluate.py <project>
-
-This will automatically run the evaluation code against a project. For
-the list of projects, see [src/projects](src/projects).
+python3 evaluate.py proj2 --max_depth 5 --interactive --ab_pruning
